@@ -48,6 +48,6 @@ class Server:
         data_list = self.dataset()
         try:
             start_index, stop_index = index_range(page, page_size)
-            return data_list[start_index, stop_index]
+            return data_list[start_index:stop_index]
         except IndexError:
             return []
