@@ -45,9 +45,13 @@ class Server:
         assert type(page) is int and page > 0
         assert type(page_size) is int and page_size > 0
 
+        # return a list of rows in the csv file named
+        # DATA_FILE = "Popular_Baby_Names.csv"
         data_list = self.dataset()
         try:
+            # Get the start and stop index
             start_index, stop_index = index_range(page, page_size)
+            # Slice the data_list of rows from start_index to stop_index
             return data_list[start_index:stop_index]
         except IndexError:
             return []
