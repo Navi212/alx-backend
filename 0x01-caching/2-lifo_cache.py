@@ -35,14 +35,15 @@ class LIFOCache(BaseCaching):
         super().__init__()
 
     def put(self, key, item):
-        """ Adds an item to the cach_data key """
+        """ Removes the last key from the cache_data dict """
         if key is None or item is None:
             pass
-        self.cache_data[key] = item
-        if len(self.cache_data) > BaseCaching.MAX_ITEMS:
-            del_key = list(self.cache_data.keys())[-1]
-            self.cache_data.pop(del_key)
-            print(f"DISCARD: {del_key}")
+        else:
+            if len(self.cache_data) >= BaseCaching.MAX_ITEMS \
+                    and key not in self.cache_data.keys():
+                del_key, _ = self.cache_data.popitem()
+                print(f"DISCARD: {del_key}")
+            self.cache_data[key] = item
 
     def get(self, key):
         """ Returns the item associated with a key in cache_data """

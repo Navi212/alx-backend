@@ -34,7 +34,7 @@ class FIFOCache(BaseCaching):
         super().__init__()
 
     def put(self, key, item):
-        """ Adds an item to the cach_data key """
+        """ Removes the first key from the cache_data dict """
         if key is None or item is None:
             pass
         self.cache_data[key] = item
