@@ -42,6 +42,7 @@ class FIFOCache(BaseCaching):
             del_key = next(iter(self.cache_data))
             del self.cache_data[del_key]
             print(f"DISCARD: {del_key}")
+        self.cache_data[key] = item
 
     def get(self, key):
         """ Returns the item associated with a key in cache_data """
