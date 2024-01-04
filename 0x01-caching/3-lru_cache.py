@@ -37,7 +37,7 @@ class LRUCache(BaseCaching):
         self.cache_data = OrderedDict()
 
     def put(self, key, item):
-        """ Removes the last key from the cache_data dict """
+        """ Removes the Least Recently Used Key from the cache_data dict """
         if key is None or item is None:
             pass
         else:
